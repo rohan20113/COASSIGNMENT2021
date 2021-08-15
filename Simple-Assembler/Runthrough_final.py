@@ -51,9 +51,12 @@ def onepass():
                         l.append("Invalid variable declaration in line "+str(line_count+1))
                     var[ins[1]]=-1
                 elif ins[0][-1]==":" and label_check(ins): 
-                    if ins[0][:-1] in lab_st.keys():
+                    if len(ins)==1:
+                        l.append("ERROR:Incomplete declaration of label in line "+str(line_count+1))
+                    elif ins[0][:-1] in lab_st.keys():
                         l.append("ERROR: Multiple declaration of same label in line "+str(line_count+1))
-                    lab_st[ins[0][:-1]]=prog_counter
+                    else:
+                        lab_st[ins[0][:-1]]=prog_counter
                     vari=False
                     prog_counter+=1
                 elif ins[0][-1]==":" and not label_check(ins): 
