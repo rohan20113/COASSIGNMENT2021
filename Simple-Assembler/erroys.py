@@ -34,7 +34,7 @@ def error_find(line,var,labels,line_count):
                 valid=False
                 error="ERROR:Invalid register names in line "+str(line_count)
                 # return 
-        elif ins[0] in optype["B"] and ins[2][1:].isalnum() and ins[2][0]=="$":
+        elif ins[0] in optype["B"] and ins[2][0]=="$":
             # print(ins,ins[1] in reg,ins[2][0:1]=="$")
             if len(ins)!=3:
                 error="ERROR:Incorrect number of operands in line "+str(line_count)
