@@ -105,8 +105,6 @@ def func_C(line):
             reg["111"]="0"*13+"100"
         elif val_1==val_2:
             reg["111"]="0"*15+"1"
-    
-    
 
 def func_D(line):
     reg["111"]="0"*16
@@ -118,7 +116,8 @@ def func_D(line):
         reg[reg_add]=mem[int(mem_add,2)]
     elif line[0:5]=="00101":
         mem[int(mem_add,2)]=reg[reg_add]
-    plt.scatter(cycles, int(mem, 2))
+    plt.scatter(cycles, int(mem_add, 2))
+
 def func_E(line):
     global pc_cont
     global pc
@@ -151,7 +150,6 @@ while(True):
 
 cycles=0
 while(halted==False):
-    
     line=lst[pc]
     mem[pc]=line
     op_bin=line[0:5]
@@ -174,3 +172,5 @@ while(halted==False):
 
 for i in mem:
     print(i)
+
+plt.show()
